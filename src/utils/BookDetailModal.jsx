@@ -1,8 +1,20 @@
+import { useTranslation } from "react-i18next";
+import { IoCloseCircleSharp } from "react-icons/io5";
+
 const BookDetailModal = ({ book, onClose, onCartAdd }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-md">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[984px] p-4 max-h-[90vh] overflow-auto">
         <div className="bg-white modal-text shadow-md dark:bg-[#12141d] rounded-2xl sm:grid sm:grid-cols-[2fr_1fr] overflow-hidden">
+          <button
+            className="absolute top-3 right-3 p-4 text-primary hover:text-primaryDark"
+            onClick={onClose}
+          >
+            <IoCloseCircleSharp size={40} />
+          </button>
+
           <img
             src={book?.cover}
             alt={book?.title}
@@ -15,7 +27,7 @@ const BookDetailModal = ({ book, onClose, onCartAdd }) => {
                 {book?.title}
               </h2>
               <span className="block text-base text-[#9fa0a4] dark:text-[#575a6e] my-3">
-                {book?.genre}
+                {t(book?.genre)}
               </span>
             </div>
 
@@ -32,7 +44,9 @@ const BookDetailModal = ({ book, onClose, onCartAdd }) => {
                 className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-darkBg font-semibold text-sm"
               >
                 <button>
-                  <span>${book?.price} | Add to Cart</span>
+                  <span>
+                    ${book?.price} | {t("Add to Cart")}
+                  </span>
                 </button>
               </a>
 
@@ -41,7 +55,7 @@ const BookDetailModal = ({ book, onClose, onCartAdd }) => {
                 href="#"
                 className="border border-[#74766f] rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-darkBg font-semibold text-sm hover:bg-primary hover:text-white hover:border-none duration-100"
               >
-                <button>Cancel</button>
+                <button>{t("Cancel")}</button>
               </a>
             </div>
           </div>

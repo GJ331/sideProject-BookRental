@@ -1,10 +1,12 @@
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { MdDeleteOutline, MdOutlineShoppingCart } from "react-icons/md";
 
 import { Toast } from "../utils/Toast";
 import { BooksContext } from "../context";
 
 const CartModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const { state, dispatch } = useContext(BooksContext);
 
   function handleDeleteCart(event, item) {
@@ -15,7 +17,7 @@ const CartModal = ({ onClose }) => {
       payload: item,
     });
 
-    Toast(`Removed ${item.title} from Cart !`, "success");
+    Toast(`${item.title} ${t("removed from Cart")} !`, "success");
   }
 
   return (
@@ -23,7 +25,7 @@ const CartModal = ({ onClose }) => {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[790px] p-4 max-h-[90vh] overflow-auto">
         <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl overflow-hidden p-5 md:p-9">
           <h2 className="text-2xl lg:text-[30px] mb-10 font-bold">
-            Your Carts
+            {t("Your Carts")}
           </h2>
           <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
             {state.cartData.length === 0 ? (
@@ -48,7 +50,7 @@ const CartModal = ({ onClose }) => {
                           {item.title}
                         </h3>
                         <p className="max-md:text-xs text-[#575A6E]">
-                          {item.genre}
+                          {t(item.genre)}
                         </p>
                         <span className="max-md:text-xs">${item.price}</span>
                       </div>
@@ -59,7 +61,7 @@ const CartModal = ({ onClose }) => {
                         onClick={() => handleDeleteCart(event, item)}
                       >
                         <MdDeleteOutline />
-                        <span className="max-md:hidden">Remove</span>
+                        <span className="max-md:hidden">{t("Remove")}</span>
                       </button>
                     </div>
                   </div>
@@ -73,14 +75,14 @@ const CartModal = ({ onClose }) => {
               href="#"
             >
               <MdOutlineShoppingCart />
-              <span>Checkout</span>
+              <span>{t("Checkout")}</span>
             </a>
             <a
               className="border border-[#74766F] rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#6F6F6F] dark:text-gray-200 font-semibold text-sm"
               href="#"
               onClick={onClose}
             >
-              Cancel
+              {t("Cancel")}
             </a>
           </div>
         </div>

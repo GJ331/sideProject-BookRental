@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-
+import { useTranslation } from "react-i18next";
 import { FaHeart } from "react-icons/fa";
 
 import { Toast } from "./Toast";
@@ -8,6 +8,8 @@ import { BooksContext } from "../context";
 import BookDetailModal from "./BookDetailModal";
 
 const BookCard = ({ book }) => {
+  const { t } = useTranslation();
+
   const [showModal, setShowModal] = useState(false);
   const [selectBook, setSelectBook] = useState(null);
   const { state, dispatch } = useContext(BooksContext);
@@ -18,9 +20,9 @@ const BookCard = ({ book }) => {
 
     if (!found) {
       dispatch({ type: "ADD_TO_CART", payload: book });
-      Toast(`${book?.title} add to cart`, "success");
+      Toast(`${book?.title} ${t("add to cart")}`, "success");
     } else {
-      Toast(`${book?.title} already in cart`, "error");
+      Toast(`${t(book?.title)} ${t("already in cart")}`, "error");
     }
   };
 
@@ -54,7 +56,7 @@ const BookCard = ({ book }) => {
         <a href="#">
           <div className="relative">
             <button
-              className={`absolute top-2 right-2 p-1 ${
+              className={`absolute top-1 right-3 p-1 ${
                 state.bookmarkData.some((b) => b.id === book?.id)
                   ? "text-rose-500"
                   : ""
@@ -76,9 +78,9 @@ const BookCard = ({ book }) => {
             onClick={() => handleBookSelection(book)}
           >
             <h3 className="text-lg font-bold mb-1 h-[3.5rem] overflow-hidden">
-              {book?.title}
+              {t(book?.title)}
             </h3>
-            <p className="text-[#575a6e] text-sm mb-2">{book?.genre}</p>
+            <p className="text-[#575a6e] text-sm mb-2">{t(book?.genre)}</p>
             <div className="flex items-center space-x-1 mb-5">
               <Rating rating={book?.rating} />
             </div>
@@ -86,7 +88,7 @@ const BookCard = ({ book }) => {
               className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-darkBg font-semibold text-sm"
               onClick={(e) => handleAddToCart(e, book)}
             >
-              <span>${book?.price} | Add to Cart</span>
+              <span>${book?.price} | {t("Add to Cart")}</span>
             </button>
           </figcaption>
         </a>

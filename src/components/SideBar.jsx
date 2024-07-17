@@ -1,7 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { FaCalendarAlt, FaFireAlt, FaFolderPlus, FaRegHeart } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaFireAlt,
+  FaFolderPlus,
+  FaRegHeart,
+} from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const SideBar = () => {
+  const { t } = useTranslation();
+
   const navLinks = [
     { to: "/trending", icon: FaFireAlt, text: "Trending" },
     { to: "/newReleases", icon: FaFolderPlus, text: "New Releases" },
@@ -19,7 +27,7 @@ const SideBar = () => {
               className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
             >
               <link.icon />
-              <span>{link.text}</span>
+              <span>{t(link.text)}</span>
             </NavLink>
           </li>
         ))}

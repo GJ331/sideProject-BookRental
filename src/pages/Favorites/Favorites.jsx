@@ -1,8 +1,12 @@
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
+
 import { BooksContext } from "../../context";
 import { MdDeleteOutline } from "react-icons/md";
 
 const Favorites = () => {
+  const { t } = useTranslation();
+
   const { state, dispatch } = useContext(BooksContext);
 
   function handleBookMarkToggle(event, book) {
@@ -14,13 +18,13 @@ const Favorites = () => {
   return (
     <div className="shadow-md dark:bg-[#12141d] rounded-2xl overflow-hidden p-5 md:p-9">
       <h2 className="text-2xl lg:text-[30px] mb-10 font-bold">
-        Favorites Books
+        {t("Favorites Books")}
       </h2>
 
       <div className="space-y-8 lg:space-y-12 max-h-[450px] mb-10 md:mb-14">
         {state.bookmarkData.length === 0 ? (
           <p className="text-xl overflow-hidden">
-            You do not have any books as favorite yet !
+            {t("You do not have any books as favorite yet !")}
           </p>
         ) : (
           state.bookmarkData.map((item, index) => (
@@ -38,7 +42,7 @@ const Favorites = () => {
                     <h3 className="text-base md:text-xl font-bold">
                       {item.title}
                     </h3>
-                    <p className="max-md:text-xs text-[#575A6E]">{item.genre}</p>
+                    <p className="max-md:text-xs text-[#575A6E]">{t(item.genre)}</p>
                     <span className="max-md:text-xs">${item.price}</span>
                   </div>
                 </div>
@@ -48,7 +52,7 @@ const Favorites = () => {
                     onClick={(e) => handleBookMarkToggle(e, item)}
                   >
                     <MdDeleteOutline />
-                    <span className="max-md:hidden">Remove</span>
+                    <span className="max-md:hidden">{t("Remove")}</span>
                   </button>
                 </div>
               </div>
