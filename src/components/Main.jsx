@@ -8,7 +8,7 @@ const Main = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className={`h-full w-full ${darkMode ? "dark" : ""}`}>
+    <div className={`h-[100vh] w-full ${darkMode ? "dark" : ""} overflow-hidden`}>
       <Header />
       <main>
         <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">

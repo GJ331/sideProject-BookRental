@@ -9,6 +9,7 @@ export default {
       },
       colors: {
         primary: "#00D991",
+        primaryDark: "#009c6e",
         darkBg: "#171923",
       },
       fontFamily: {

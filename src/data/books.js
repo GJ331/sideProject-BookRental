@@ -6,7 +6,7 @@ const data = [
     title: "House of Sky",
     description:
       "Noah Baumbach's incisive and compassionate look at a marriage breaking up and a family staying together.",
-    genre: "Comedy/Drama",
+    genre: "Comedy",
     rating: 3,
     price: 90,
     createdAt: "2024-07-15",
@@ -18,7 +18,7 @@ const data = [
     title: "Book Lovers",
     description:
       "A trio of bodybuilders in Florida get caught up in an extortion ring and a kidnapping scheme that goes terribly wrong.",
-    genre: "Action/Comedy/Crime/Drama",
+    genre: "Action",
     rating: 4,
     price: 100,
     createdAt: "2024-05-14",
@@ -30,7 +30,7 @@ const data = [
     title: "Carrie Soto Is Back",
     description:
       "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
-    genre: "Comedy/Drama",
+    genre: "Comedy",
     rating: 5,
     price: 140,
     createdAt: "2024-05-30",
@@ -42,7 +42,7 @@ const data = [
     title: "Sea of Tranquility",
     description:
       "All unemployed, Ki-taek and his family take peculiar interest in the wealthy and glamorous Parks, as they ingratiate themselves into their lives and get entangled in an unexpected incident.",
-    genre: "Comedy, Drama, Thriller",
+    genre: "Thriller",
     rating: 4,
     price: 250,
     createdAt: "2024-07-13",
@@ -54,7 +54,7 @@ const data = [
     title: "Hidden Pictures",
     description:
       "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
-    genre: "Action/Adventure/Sci-fi",
+    genre: "Action",
     rating: 5,
     price: 100,
     createdAt: "2024-05-19",
@@ -66,7 +66,7 @@ const data = [
     title: "The Final Gambit",
     description:
       "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
-    genre: "Action/Adventure/Sci-fi",
+    genre: "Sci-fi",
     rating: 5,
     price: 100,
     createdAt: "2024-07-11",
@@ -131,7 +131,7 @@ const data = [
     title: "Leave the World Behind",
     description:
       "A novel by Rumaan Alam that explores a vacation-turned-nightmare when a mysterious disaster strikes, forcing two families to confront their fears and each other.",
-    genre: "Fiction, Thriller",
+    genre: "Thriller",
     rating: 3,
     price: 200,
     createdAt: "2024-07-01",
@@ -143,11 +143,31 @@ const data = [
     title: "The Final Girl Support Group",
     description:
       "A thriller novel by Grady Hendrix that follows a group of women who survived mass murders in their youth, now brought together to confront their past and a new threat.",
-    genre: "Fiction, Thriller",
+    genre: "Fiction",
     rating: 5,
     price: 270,
     createdAt: "2024-07-09",
   },
+  {
+    id: crypto.randomUUID(),
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1564254918i/44165800.jpg",
+    title: "The Turn of the Key",
+    description: "A thriller novel by Ruth Ware that follows a nanny who becomes entangled in the mysterious and dark secrets of the family she works for.",
+    genre: "Fiction",
+    rating: 3,
+    price: 110,
+    createdAt: "2024-07-12"
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1702893790i/200020832.jpg",
+    title: "The Maidens",
+    description: "A thriller novel by Alex Michaelides that follows a group of students and a professor drawn into a murder investigation at Cambridge University, where secrets and suspicions unravel.",
+    genre: "Thriller",
+    rating: 4,
+    price: 150,
+    createdAt: "2024-07-18"
+  }
 ];
 
 function getAllBooks() {
